@@ -1,0 +1,51 @@
+<html>
+<head>
+<title> Websocket Client: Send/Receive Test </title>
+<script type="text/javascript" src="/static/web_socket.js"> </script>
+<script type="text/javascript" src="/static/swfobject.js"> </script>
+<script type="text/javascript">
+
+	WEB_SOCKET_SWF_LOCATION = "/static/WebSocketMain.swf";
+	ws_init('ws://localhost:8888/ws_channel');
+
+	function writeMsgToTextArea(msg){
+		document.getElementById('text_area').value = msg;
+	}
+
+
+	function ws_init(url) {
+		ws = new WebSocket(url);
+		ws.onopen = function(){	
+			console.log("Connection established");
+		};
+		ws.onmessage = function(msg){
+			console.log(msg);
+			console.log(msg.data);
+			console.log("Message Received:  '" + msg.data + "'" );
+			writeMsgToTextArea(msg.data);
+		};
+		ws.onclose = function(){
+			console.log("Connection Closed");
+		}
+	}
+
+	function ws_send(msg){
+		console.log("Sending: " + msg);
+		writeMsgToTextArea(msg);
+		ws.send(msg);
+	}
+
+</script>
+
+</head>
+<body>
+	<form name="input_form">
+		<table>
+			<tr>	
+				<td> Message </td>
+				<td> <input type="text" id="text_area" name="msg" align="center" onkeyup="ws_send(document.input_form.msg.value)" value="{{ message }}"size="70"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
