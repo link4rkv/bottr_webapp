@@ -1,0 +1,48 @@
+Bottr Assignment
+=========
+
+****************************************************************************************
+ A simple web based real time send/receive text system using RabbitMQ + Tornado + Websocket + Mongodb.
+****************************************************************************************
+
+Introduction:-
+=============
+
+In order to test this application you need following packages :
+
+1. Tornado - Python High performence async webserver.
+2. Pika - RabbitMQ client that support Tornado IOLoop.
+3. Websocket-js - Browser JS package to support websocket API.
+4. Mongodb - MongoDB is an open-source document database.
+5. Pymongo - It is a Python distribution containing tools for working with MongoDB.
+6. Also you should run a RabbitMQ server in your system.
+
+To install python packages :- 
+=============================
+1. To install Tornado use this command: "easy_install tornado" ,
+
+2. Similarly, easy_install pika, 
+
+3. rabbitmq-server installation - https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-rabbitmq.
+
+4. To know more about the Websocket browser implementation, get a copy from https://github.com/stdva/web-socket-js
+
+5. mongodb installation - https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-14-04.
+
+6. Pymongo installation - "easy_install pymongo" 
+
+
+
+HOW to RUN
+==========
+
+Enter in to bottr application folder and run the python script:
+
+    >cd bottr_webapp
+
+    >python app.py
+
+
+Take this URL http://localhost:8888/chat on your browser(Chrome or Firefox 4, the browser should support websocket.)
+
+Thanks
