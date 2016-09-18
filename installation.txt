@@ -43,6 +43,6 @@ Enter in to bottr application folder and run the python script:
     >python app.py
 
 
-Take this URL http://localhost:8888/chat on your browser(Chrome or Firefox 4, the browser should support websocket.)
+Take this URL http://localhost:8888/sample on your browser(Chrome or Firefox 4, the browser should support websocket.)
 
 Thanks
