@@ -109,6 +109,9 @@ class PikaClient(object):
         print('PikaClient: Message receive, delivery tag #%i' %
               method.delivery_tag)
 
+        #Send the Consumed message via Websocket to browser.
+        self.websocket.write_message(body)
+        
         #Save the consumed message to mongodb
         self.mongo = Mongodb()
         self.mongo.db = self.mongo.get_db()
@@ -117,9 +120,6 @@ class PikaClient(object):
             self.mongo.update_message(self.mongo.db, body)
         else:
             self.mongo.add_message(self.mongo.db, body)
-
-        #Send the Consumed message via Websocket to browser.
-        self.websocket.write_message(body)
 
     def on_basic_cancel(self, frame):
         print('PikaClient: Basic Cancel Ok')
